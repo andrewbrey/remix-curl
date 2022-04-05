@@ -9,12 +9,9 @@ export default async function handleRequest(
   remixContext: EntryContext
 ) {
   const UA = request.headers.get("user-agent");
-
-  console.log("User-Agent was ", UA);
+  const url = new URL(request.url);
 
   if (UA?.includes("curl")) {
-    const url = new URL(request.url);
-
     return await fetch(`${url.origin}/curl`);
   }
 
@@ -23,7 +20,10 @@ export default async function handleRequest(
   );
 
   responseHeaders.set("Content-Type", "text/html");
-  responseHeaders.set("X-CUSTOM-TEST", "hiiii");
+  responseHeaders.set(
+    "X-CUSTOM-TEST",
+    JSON.stringify({ UA, origin: url.origin })
+  );
 
   return new Response("<!DOCTYPE html>" + markup, {
     status: responseStatusCode,

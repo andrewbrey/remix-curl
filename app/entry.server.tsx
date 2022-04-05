@@ -23,6 +23,7 @@ export default async function handleRequest(
   );
 
   responseHeaders.set("Content-Type", "text/html");
+  responseHeaders.set("X-CUSTOM-TEST", "hiiii");
 
   return new Response("<!DOCTYPE html>" + markup, {
     status: responseStatusCode,

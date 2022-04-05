@@ -8,7 +8,11 @@ export default async function handleRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
-  if (request.headers.get("user-agent")?.includes("curl")) {
+  const UA = request.headers.get("user-agent");
+
+  console.log("User-Agent was ", UA);
+
+  if (UA?.includes("curl")) {
     const url = new URL(request.url);
 
     return await fetch(`${url.origin}/curl`);

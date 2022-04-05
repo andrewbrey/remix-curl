@@ -13,9 +13,13 @@ export const loader: LoaderFunction = async ({ request }) => {
   const message = `
 ${dw("About")}
 ${bw(
-  `This is a tiny demo of how you can send different ${it(
-    "(and styled)"
-  )} content to curl while serving normal html to web browsers!`
+  `This is a tiny demo of how you can send different
+  ${it("(and styled)")} content to curl while serving normal
+  html to web browsers.
+  
+  If you are a developer, how cool would it be to have
+  a resume site that can be viewed either as a webpage
+  or a curl response.`
 )}
 
 ${bw("Pretty neat!")}
@@ -37,7 +41,7 @@ ${bw("- https://github.com/andrewbrey/remix-curl")}
     titleAlignment: "left",
   });
 
-  return new Response(result, {
+  return new Response(result + "\n", {
     status: 200,
     headers: { "Content-Type": "text/plain; utf-8;" },
   });

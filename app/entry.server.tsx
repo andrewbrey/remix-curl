@@ -2,12 +2,18 @@ import type { EntryContext } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { renderToString } from "react-dom/server";
 
-export default function handleRequest(
+export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
+  if (request.headers.get("user-agent")?.includes("curl")) {
+    const url = new URL(request.url);
+
+    return await fetch(`${url.origin}/curl`);
+  }
+
   let markup = renderToString(
     <RemixServer context={remixContext} url={request.url} />
   );

@@ -1,0 +1,10 @@
+diff --git a/node_modules/boxen/index.js b/node_modules/boxen/index.js
+index ff98256..ba6d315 100644
+--- a/node_modules/boxen/index.js
++++ b/node_modules/boxen/index.js
+@@ -1,4 +1,4 @@
+-import process from 'node:process';
++import process from 'process';
+ import stringWidth from 'string-width';
+ import chalk from 'chalk';
+ import widestLine from 'widest-line';

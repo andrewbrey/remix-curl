@@ -1,7 +1,8 @@
 import { LoaderFunction } from "@remix-run/node";
 import boxen from "boxen";
-import chalk from "chalk";
+import { Chalk } from "chalk";
 
+const chalk = new Chalk({ level: 3 }); // https://github.com/chalk/chalk#chalklevel
 const dw = chalk.reset.dim.white;
 const bw = chalk.reset.bold.white;
 

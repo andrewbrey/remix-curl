@@ -5,6 +5,7 @@
   "license": "",
   "sideEffects": false,
   "scripts": {
+    "postinstall": "patch-package",
     "build": "remix build",
     "dev": "remix dev",
     "curl": "watch --color --interval 1 curl --silent localhost:3000"

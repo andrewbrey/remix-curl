@@ -5,7 +5,6 @@ import { Chalk } from "chalk";
 const chalk = new Chalk({ level: 3 }); // https://github.com/chalk/chalk#chalklevel
 const dw = chalk.reset.dim.white;
 const bw = chalk.reset.bold.white;
-
 const it = chalk.bold.italic.underline;
 
 export const loader: LoaderFunction = async ({ request }) => {

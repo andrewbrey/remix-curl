@@ -1,4 +1,4 @@
-import { HeadersFunction, json, LoaderFunction } from "@remix-run/node";
+import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 interface LoaderData {
@@ -10,12 +10,6 @@ export const loader: LoaderFunction = async ({ request }) => {
   const data: LoaderData = { origin: url.origin };
 
   return json(data);
-};
-
-export const headers: HeadersFunction = () => {
-  return {
-    "Cache-Control": "max-age=31536000, s-maxage=31536000, immutable",
-  };
 };
 
 export default function Index() {
